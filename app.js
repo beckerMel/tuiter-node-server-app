@@ -1,3 +1,6 @@
+import mongoose from "mongoose";
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING;
+mongoose.connect(CONNECTION_STRING);
 import express from 'express';
 import HelloController
     from "./controllers/hello-controller.js";
@@ -8,7 +11,7 @@ import TuitsController
 import cors from 'cors';
 const app = express();
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 
 TuitsController(app);
